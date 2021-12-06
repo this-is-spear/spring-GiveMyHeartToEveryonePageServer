@@ -30,9 +30,11 @@ public class ViewImageCardController {
     @GetMapping("/image-card/temp")
     public String temporarySaveImageCardView(Model model){
         saveImageCardService.saveImageCard();
-        List<TextItem> textItems = viewImageCardService.viewTextEnvent();
+//        임시 cardId
+        long cardId = 1L;
+        List<TextItem> textItems = viewImageCardService.viewTextEnvent(cardId);
         model.addAttribute("textItems",textItems);
-        List<ImageItem> imageItems = viewImageCardService.viewImageEnvent();
+        List<ImageItem> imageItems = viewImageCardService.viewImageEnvent(cardId);
         model.addAttribute("imageItems", imageItems);
         return "";
     }

@@ -12,9 +12,10 @@ import java.util.List;
  * Github : https://github.com/Imaspear
  */
 public interface ItemRepository {
-//    List<TextItem> findTextItembyCardId();
-//    List<ImageItem> findImageItembyCardId();
-//    boolean findCardItem(long cardId);
-    boolean saveALlItem(long cardId);
-    CardItem saveCardItem();
+    List<TextItem> findTextItembyCardId(long cardId);
+    List<ImageItem> findImageItembyCardId(long cardId);
+    boolean findCardItem(long cardId);
+    boolean saveTextItembyCardId(long cardId);
+    boolean saveImageItembyCardId(long cardId);
+    CardItem temporarySaveCardItem();
 }

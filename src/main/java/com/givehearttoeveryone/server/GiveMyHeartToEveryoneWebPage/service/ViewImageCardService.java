@@ -20,11 +20,15 @@ public class ViewImageCardService {
         this.itemRepository = itemRepository;
     }
 
-    public List<TextItem> viewTextEnvent(){
+    public List<TextItem> viewTextEnvent(long cardId){
+
+        List<TextItem> items = itemRepository.findTextItembyCardId(cardId);
         return null;
     }
 
-    public List<ImageItem> viewImageEnvent(){
+    public List<ImageItem> viewImageEnvent(long cardId){
+
+        List<ImageItem> items = itemRepository.findImageItembyCardId(cardId);
         return null;
     }
 }

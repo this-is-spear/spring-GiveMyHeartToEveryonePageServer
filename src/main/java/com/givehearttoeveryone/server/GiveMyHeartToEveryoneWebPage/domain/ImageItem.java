@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 public class ImageItem {
     private long id;
+    private int depth;
     private String path;
     private int size;
     private long CardId;
@@ -17,11 +18,20 @@ public class ImageItem {
     public ImageItem() {
     }
 
-    public ImageItem(long id, String path, int size, long cardId) {
+    public ImageItem(long id, int depth, String path, int size, long cardId) {
         this.id = id;
+        this.depth = depth;
         this.path = path;
         this.size = size;
         CardId = cardId;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
     }
 
     public long getId() {

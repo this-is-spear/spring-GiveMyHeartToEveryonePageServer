@@ -1,5 +1,7 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.domain;
 
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.domain.enums.AlignText;
+
 /**
  * Created by Imaspear on 2021-12-05
  * Blog : https://imspear.tistory.com/
@@ -8,16 +10,18 @@ package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.domain;
 public class TextItem {
     private long id;
     private String path;
+    private int depth;
     private int fontSize;
-    private int alignText;
+    private AlignText alignText;
     private long cardId;
 
     public TextItem() {
     }
 
-    public TextItem(long id, String path, int fontSize, int alignText, long cardId) {
+    public TextItem(long id, String path, int depth, int fontSize, AlignText alignText, long cardId) {
         this.id = id;
         this.path = path;
+        this.depth = depth;
         this.fontSize = fontSize;
         this.alignText = alignText;
         this.cardId = cardId;
@@ -47,11 +51,11 @@ public class TextItem {
         this.fontSize = fontSize;
     }
 
-    public int getAlignText() {
+    public AlignText getAlignText() {
         return alignText;
     }
 
-    public void setAlignText(int alignText) {
+    public void setAlignText(AlignText alignText) {
         this.alignText = alignText;
     }
 
@@ -61,6 +65,14 @@ public class TextItem {
 
     public void setCardId(long cardId) {
         this.cardId = cardId;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
     }
 
     @Override

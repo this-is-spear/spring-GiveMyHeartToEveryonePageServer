@@ -17,12 +17,13 @@ public class SaveImageCardService {
     }
 
     public void saveImageCard() {
-        CardItem cardItem = itemRepository.saveCardItem();
-        boolean validate = itemRepository.saveALlItem(cardItem.getId());
-        if(!validate){
-            System.out.println("불러온 정보가 없습니다.");
-        }else{
-            System.out.println();
+        try {
+            CardItem cardItem = itemRepository.temporarySaveCardItem();
+            itemRepository.saveTextItembyCardId(cardItem.getId());
+            itemRepository.saveImageItembyCardId(cardItem.getId());
+            System.out.println("성공했습니다.");
+        }catch (Exception e){
+            System.out.println("저장에 실패했습니다 : " + e);
         }
     }
 }

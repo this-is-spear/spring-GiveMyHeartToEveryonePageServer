@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface CardRepository {
     CardItem getOndByCardId(Long cardId);
-    Map<Long ,CardItem> getListByUserId(Long userId);
+    Map<Long ,CardItem> getListByMemberId(Long memberId);
     Map<Long ,CardItem> getListByCardName(String cardName);
     void saveOneByCardId(Long cardId, CardItem cardItem);
     void deleteOneByCardId(Long cardId, CardItem cardItem);

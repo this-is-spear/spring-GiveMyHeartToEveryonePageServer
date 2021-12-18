@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public interface SimpleQuickCardService {
     CardItem showCardOneByCardId(Long cardId);
-    Map<Long, CardItem> showCardListByUserId(Long userId);
+    Map<Long, CardItem> showCardListByUserId(Long memberId);
     Map<Long, CardItem> showCardListByCardName(String cardName);
-    void makeCard(Long userId);
-    void editCard(Long cardId,Long userId);
-    void deleteCardByCardId(Long cardId, Long userId);
+    void makeCard(Long memberId);
+    void editCard(Long cardId,Long memberId);
+    void deleteCardByCardId(Long cardId, Long memberId);
 }

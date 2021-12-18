@@ -1,4 +1,6 @@
-package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService;
+package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository;
+
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +19,7 @@ public class ImageMemoryRepository implements ImageRepository{
     }
 
     @Override
-    public void saveImageItems(Long cardId, Map<Long, ImageItem> imageItems) {
+    public void setImageItemsByCardId(Long cardId, Map<Long, ImageItem> imageItems) {
         saveImageItmes.put(cardId, imageItems);
     }
 

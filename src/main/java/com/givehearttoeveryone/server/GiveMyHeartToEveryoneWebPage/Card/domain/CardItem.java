@@ -1,7 +1,7 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.domain;
 
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.TextItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
 
 import java.util.Map;
 
@@ -11,8 +11,39 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public class CardItem {
-    private Long CardId;
+    private Long cardId;
     private String cardName;
-    private Map<Long, ImageItem> imageItems;
-    private Map<Long, TextItem> textItems;
+    private Long memberId;
+//    private Map<Long, ImageItem> imageItems;
+//    private Map<Long, TextItem> textItems;
+
+    public CardItem(Long cardId, String cardName, Long memberId) {
+        this.cardId = cardId;
+        this.cardName = cardName;
+        this.memberId = memberId;
+    }
+
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+    public Long getUserId() {
+        return memberId;
+    }
+
+    public void setUserId(Long memberId) {
+        this.memberId = memberId;
+    }
 }

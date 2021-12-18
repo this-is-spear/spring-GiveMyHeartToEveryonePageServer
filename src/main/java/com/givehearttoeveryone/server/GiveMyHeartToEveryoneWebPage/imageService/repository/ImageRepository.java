@@ -1,4 +1,4 @@
-package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService;
+package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository;
 
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
 
@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface ImageRepository {
     Map<Long, ImageItem> getImageItemsByCardId(Long cardId);
-    void saveImageItems(Long cardId, Map<Long, ImageItem> imageItems);
+    void setImageItemsByCardId(Long cardId, Map<Long, ImageItem> imageItems);
     void editImageItems(Long cardId, Map<Long, ImageItem> imageItems);
     void deleteImageItemsByCardId(Long cardId);
 }

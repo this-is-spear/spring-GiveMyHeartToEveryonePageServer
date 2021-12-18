@@ -1,4 +1,6 @@
-package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService;
+package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository;
+
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +10,7 @@ import java.util.Map;
  * Blog : https://imspear.tistory.com/
  * Github : https://github.com/Imaspear
  */
-public class TextMemoryRepository implements TextRepository{
+public class TextMemoryRepository implements TextRepository {
     Map<Long, Map<Long, TextItem>> saveTextItemsByCardId = new HashMap<>();
 
     @Override
@@ -17,7 +19,7 @@ public class TextMemoryRepository implements TextRepository{
     }
 
     @Override
-    public void saveTextItems(Long cardId, Map<Long, TextItem> textItems) {
+    public void setTextItemsByCardId(Long cardId, Map<Long, TextItem> textItems) {
         saveTextItemsByCardId.put(cardId, textItems);
     }
 

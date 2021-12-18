@@ -1,6 +1,6 @@
-package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService;
+package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository;
 
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.TextItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface TextRepository {
     Map<Long, TextItem> getTextItemsByCardId(Long cardId);
-    void saveTextItems(Long cardId, Map<Long, TextItem> textItems);
+    void setTextItemsByCardId(Long cardId, Map<Long, TextItem> textItems);
     void editTextItems(Long cardId, Map<Long, TextItem> textItems);
     void deleteTextItemsByCardId(Long cardId);
 }

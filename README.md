@@ -9,6 +9,10 @@ Give heart to everyone page server
 
 다음주 부터는 서비스를 만들어 특정한 상황이 왔을 때, 어떻게 실행해야 하는지 테스트 할 생각이다.
 
+### work flow
+
+[깃 관리](https://techblog.woowahan.com/2553/)
+
 ### Show Diagram
 <img src="java.png" alt="">
 

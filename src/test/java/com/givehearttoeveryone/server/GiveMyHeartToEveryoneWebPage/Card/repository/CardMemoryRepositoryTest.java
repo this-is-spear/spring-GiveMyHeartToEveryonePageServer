@@ -43,7 +43,7 @@ class CardMemoryRepositoryTest {
 
     @Test
     @DisplayName("카드 하나 조회하기 위해 카드 ID를 이용해 데이터 가져오기")
-    void getOndByCardId() {
+    void getOneByCardId() {
         for (Long i = 5L; i < 20L; i++) {
             System.out.println(cardItemMap.get(i));
             Assertions.assertThat(cardItemMap.get(i)).isNotNull();

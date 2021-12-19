@@ -14,7 +14,7 @@ public class CardMemoryRepository implements CardRepository{
     Map<Long, CardItem> cardItems = new HashMap<>();
 
     @Override
-    public CardItem getOndByCardId(Long cardId) {
+    public CardItem getOneByCardId(Long cardId) {
         return cardItems.get(cardId);
     }
 
@@ -36,5 +36,10 @@ public class CardMemoryRepository implements CardRepository{
     @Override
     public void deleteOneByCardId(Long cardId, CardItem cardItem) {
         cardItems.remove(cardId);
+    }
+
+    @Override
+    public Map<Long, CardItem> getListAll() {
+        return cardItems;
     }
 }

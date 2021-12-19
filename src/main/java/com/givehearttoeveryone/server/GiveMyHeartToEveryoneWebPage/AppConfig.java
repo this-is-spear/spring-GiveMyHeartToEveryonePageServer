@@ -2,6 +2,8 @@ package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage;
 
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardRepository;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.service.SimpleCardService;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.service.SimpleQuickCardService;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageMemoryRepository;
@@ -35,4 +37,8 @@ public class AppConfig {
     public MemberRepository memberRepository(){
         return new MemberMemoryRepository();
     };
+    @Bean
+    public SimpleCardService simpleCardService(){
+        return new SimpleQuickCardService(cardRepository(), imageRepository(), textRepository());
+    }
 }

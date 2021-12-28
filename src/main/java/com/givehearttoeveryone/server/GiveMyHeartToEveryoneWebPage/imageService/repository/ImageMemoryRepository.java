@@ -1,9 +1,10 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository;
 
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Imaspear on 2021-12-17
@@ -11,7 +12,7 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public class ImageMemoryRepository implements ImageRepository{
-    Map<Long, Map<Long, ImageItem>> saveImageItmes = new HashMap<>();
+    Map<Long, Map<Long, ImageItem>> saveImageItmes = new ConcurrentHashMap<>();
 
     @Override
     public Map<Long, ImageItem> getImageItemsByCardId(Long cardId) {

@@ -1,10 +1,5 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.domain;
 
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
-
-import java.util.Map;
-
 /**
  * Created by Imaspear on 2021-12-17
  * Blog : https://imspear.tistory.com/

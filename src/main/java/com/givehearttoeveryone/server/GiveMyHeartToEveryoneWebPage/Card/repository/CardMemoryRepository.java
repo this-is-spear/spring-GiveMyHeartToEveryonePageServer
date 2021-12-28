@@ -4,6 +4,7 @@ import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.domain.C
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Imaspear on 2021-12-18
@@ -11,7 +12,7 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public class CardMemoryRepository implements CardRepository{
-    Map<Long, CardItem> cardItems = new HashMap<>();
+    Map<Long, CardItem> cardItems = new ConcurrentHashMap<>();
 
     @Override
     public CardItem getOneByCardId(Long cardId) {

@@ -1,6 +1,6 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository;
 
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 
 import java.util.Map;
 

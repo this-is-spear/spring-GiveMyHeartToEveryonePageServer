@@ -4,7 +4,7 @@ import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.AppConfig;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.Member;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.enums.Grade;
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository.TextRepository;
@@ -17,8 +17,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by Imaspear on 2021-12-19

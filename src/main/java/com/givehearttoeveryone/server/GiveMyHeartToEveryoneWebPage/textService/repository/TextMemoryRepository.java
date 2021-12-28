@@ -4,6 +4,7 @@ import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.d
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Imaspear on 2021-12-17
@@ -11,7 +12,7 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public class TextMemoryRepository implements TextRepository {
-    Map<Long, Map<Long, TextItem>> saveTextItemsByCardId = new HashMap<>();
+    Map<Long, Map<Long, TextItem>> saveTextItemsByCardId = new ConcurrentHashMap<>();
 
     @Override
     public Map<Long, TextItem> getTextItemsByCardId(Long cardId) {

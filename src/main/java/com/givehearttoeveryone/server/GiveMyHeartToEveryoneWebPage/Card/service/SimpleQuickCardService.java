@@ -1,17 +1,12 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.service;
 
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.AppConfig;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.domain.CardItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardRepository;
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.ImageItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.domain.TextItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository.TextRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.ILoggerFactory;
-import org.springframework.boot.logging.log4j2.Log4J2LoggingSystem;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.HashMap;
 import java.util.Map;

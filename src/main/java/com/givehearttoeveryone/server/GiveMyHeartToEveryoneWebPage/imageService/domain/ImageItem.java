@@ -1,4 +1,4 @@
-package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService;
+package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain;
 
 /**
  * Created by Imaspear on 2021-12-17

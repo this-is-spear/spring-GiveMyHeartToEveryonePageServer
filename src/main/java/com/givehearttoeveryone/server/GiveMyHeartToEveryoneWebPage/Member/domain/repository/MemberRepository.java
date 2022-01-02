@@ -9,4 +9,6 @@ import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain
  */
 public interface MemberRepository {
     Member getOneByMemberId(Long memberId);
+    void upgradeMember(Long memberId);
+    Member updateMember(Long memberId);
 }

@@ -18,4 +18,14 @@ public class MemberMemoryRepository implements MemberRepository{
     public Member getOneByMemberId(Long memberId) {
         return memberMap.get(memberId);
     }
+
+    @Override
+    public void upgradeMember(Long memberId) {
+
+    }
+
+    @Override
+    public Member updateMember(Long memberId) {
+        return null;
+    }
 }

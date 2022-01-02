@@ -12,25 +12,30 @@ import java.util.concurrent.ConcurrentHashMap;
  * Github : https://github.com/Imaspear
  */
 public class ImageMemoryRepository implements ImageRepository{
-    Map<Long, Map<Long, ImageItem>> saveImageItmes = new ConcurrentHashMap<>();
+    Map<Long, Map<Long, ImageItem>> imageItemList = new ConcurrentHashMap<>();
 
     @Override
-    public Map<Long, ImageItem> getImageItemsByCardId(Long cardId) {
-        return saveImageItmes.get(cardId);
+    public Map<Long, ImageItem> getImageItemListByCardId(Long cardId) {
+        return imageItemList.get(cardId);
+    }
+
+    @Override
+    public ImageItem getImageItemByCardIdAndImageId(Long cardId, Long imageId) {
+        return imageItemList.get(cardId).get(imageId);
     }
 
     @Override
     public void setImageItemsByCardId(Long cardId, Map<Long, ImageItem> imageItems) {
-        saveImageItmes.put(cardId, imageItems);
+        imageItemList.put(cardId, imageItems);
     }
 
-    @Override
-    public void editImageItems(Long cardId, Map<Long, ImageItem> imageItems) {
-        saveImageItmes.put(cardId, imageItems);
-    }
+//    @Override
+//    public void editImageItems(Long cardId, Map<Long, ImageItem> imageItems) {
+//        saveImageItmes.put(cardId, imageItems);
+//    }
 
     @Override
     public void deleteImageItemsByCardId(Long cardId) {
-        saveImageItmes.remove(cardId);
+        imageItemList.remove(cardId);
     }
 }

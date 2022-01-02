@@ -10,8 +10,9 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public interface ImageRepository {
-    Map<Long, ImageItem> getImageItemsByCardId(Long cardId);
+    Map<Long, ImageItem> getImageItemListByCardId(Long cardId);
+    ImageItem getImageItemByCardIdAndImageId(Long cardId, Long imageId);
     void setImageItemsByCardId(Long cardId, Map<Long, ImageItem> imageItems);
-    void editImageItems(Long cardId, Map<Long, ImageItem> imageItems);
+//    void editImageItems(Long cardId, Map<Long, ImageItem> imageItems);
     void deleteImageItemsByCardId(Long cardId);
 }

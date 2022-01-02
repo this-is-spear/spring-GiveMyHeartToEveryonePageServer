@@ -3,11 +3,12 @@ package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.service.SimpleCardService;
-import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.service.SimpleQuickCardService;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageRepository;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.service.ImageService;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.service.ImageServiceImpl;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository.TextMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.textService.repository.TextRepository;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +39,7 @@ public class AppConfig {
         return new MemberMemoryRepository();
     };
     @Bean
-    public SimpleCardService simpleCardService(){
-        return new SimpleQuickCardService(cardRepository(), imageRepository(), textRepository());
-    }
+    public ImageService imageService(){
+        return new ImageServiceImpl(imageRepository());
+    };
 }

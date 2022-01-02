@@ -21,7 +21,7 @@ public class MemberMemoryRepository implements MemberRepository{
 
     @Override
     public void upgradeMember(Long memberId) {
-        
+
     }
 
     @Override

@@ -13,6 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +31,6 @@ class ImageMemoryRepositoryTest {
         this.imageRepository = applicationContext.getBean("imageRepository", ImageRepository.class);
     }
 
-    Map<Long, Map<Long, ImageItem>> saveImageItemsByCardId;
     Long sequence = 0L;
     Member member = new Member(sequence, "imaspear", Grade.VIP);
     CardItem testCard = new CardItem(++sequence, "testCard", member.getMemberId());
@@ -39,7 +39,7 @@ class ImageMemoryRepositoryTest {
     @DisplayName("임의의 이미지 아이템을 생성해 저장")
     void saveTextItemsByCardId() {
         //given
-        Map<Long, ImageItem> imageItems = new HashMap<>();
+        Map<Long, ImageItem> imageItems = new ConcurrentHashMap<>();
         for (int i = 0; i < 10; i++) {
             ImageItem imageItem = new ImageItem(++sequence, "/path/number");
             imageItems.put(imageItem.getImageId(), imageItem);

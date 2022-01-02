@@ -15,8 +15,13 @@ public class TextMemoryRepository implements TextRepository {
     Map<Long, Map<Long, TextItem>> saveTextItemsByCardId = new ConcurrentHashMap<>();
 
     @Override
-    public Map<Long, TextItem> getTextItemsByCardId(Long cardId) {
+    public Map<Long, TextItem> getTextItemListByCardId(Long cardId) {
         return saveTextItemsByCardId.get(cardId);
+    }
+
+    @Override
+    public TextItem getTextItemByCardIdAndTextId(Long cardId, Long textId) {
+        return saveTextItemsByCardId.get(cardId).get(textId);
     }
 
     @Override

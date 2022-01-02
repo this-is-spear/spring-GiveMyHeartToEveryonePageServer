@@ -14,6 +14,7 @@ public interface ImageService {
     void setImageItems(Long cardId, Map<Long, ImageItem> imageItems);
     // 수정
     //void editImageItemsByCardIdAndItemId(Long cardId, Long ItemId);
+    ImageItem getImageItem(Long cardId, Long imageId);
     // 삭제
     void deleteImageItemsByCardId(Long cardId);
     // 조회

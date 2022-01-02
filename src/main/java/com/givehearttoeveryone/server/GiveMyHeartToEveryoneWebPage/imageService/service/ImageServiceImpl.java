@@ -31,4 +31,9 @@ public class ImageServiceImpl implements ImageService{
     public Map<Long, ImageItem> getImageItemListByCardId(Long cardId) {
         return imageRepository.getImageItemListByCardId(cardId);
     }
+
+    @Override
+    public ImageItem getImageItem(Long cardId, Long imageId) {
+        return imageRepository.getImageItemByCardIdAndImageId(cardId, imageId);
+    }
 }

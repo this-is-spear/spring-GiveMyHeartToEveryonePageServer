@@ -20,12 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Github : https://github.com/Imaspear
  */
 class ImageServiceImplTest {
-    private final ImageRepository imageRepository;
     private final ImageService imageService;
 
     public ImageServiceImplTest() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        this.imageRepository = applicationContext.getBean("imageRepository", ImageRepository.class);
         this.imageService = applicationContext.getBean("imageService", ImageService.class);
     }
 

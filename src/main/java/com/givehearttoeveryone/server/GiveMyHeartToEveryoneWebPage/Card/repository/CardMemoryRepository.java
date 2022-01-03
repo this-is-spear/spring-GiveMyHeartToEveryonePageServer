@@ -30,12 +30,12 @@ public class CardMemoryRepository implements CardRepository{
     }
 
     @Override
-    public void saveOneByCardId(Long cardId, CardItem cardItem) {
+    public void setCardItem(Long cardId, CardItem cardItem) {
         cardItems.put(cardId,cardItem);
     }
 
     @Override
-    public void deleteOneByCardId(Long cardId, CardItem cardItem) {
+    public void deleteCardItem(Long cardId) {
         cardItems.remove(cardId);
     }
 

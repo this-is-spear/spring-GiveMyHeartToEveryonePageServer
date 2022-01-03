@@ -14,6 +14,6 @@ public interface CardRepository {
     Map<Long ,CardItem> getListByMemberId(Long memberId);
     Map<Long ,CardItem> getListByCardName(String cardName);
     Map<Long ,CardItem> getListAll();
-    void saveOneByCardId(Long cardId, CardItem cardItem);
-    void deleteOneByCardId(Long cardId, CardItem cardItem);
+    void setCardItem(Long cardId, CardItem cardItem);
+    void deleteCardItem(Long cardId);
 }

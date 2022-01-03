@@ -1,6 +1,7 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository;
 
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.Member;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.enums.Grade;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,20 +13,33 @@ import java.util.concurrent.ConcurrentHashMap;
  * Github : https://github.com/Imaspear
  */
 public class MemberMemoryRepository implements MemberRepository{
-    Map<Long, Member> memberMap =new ConcurrentHashMap<>();
+
+    Map<Long, Member> memberList =new ConcurrentHashMap<>();
+
+    @Override
+    public Long setMember(Long memberId, String memberName, Grade grade) {
+        Member member = new Member(memberId, memberName, grade);
+        memberList.put(memberId, member);
+        return memberId;
+    }
 
     @Override
     public Member getOneByMemberId(Long memberId) {
-        return memberMap.get(memberId);
+        return memberList.get(memberId);
     }
 
     @Override
-    public void upgradeMember(Long memberId) {
-
+    public void updateGradeMember(Long memberId, Grade grade) {
+        if(memberList.get(memberId).getGrade() != grade){
+            Member member = memberList.get(memberId);
+            member.setGrade(grade);
+        }
     }
 
     @Override
-    public Member updateMember(Long memberId) {
-        return null;
+    public Long updateMemberName(Long memberId, String memberName) {
+        Member member = memberList.get(memberId);
+        member.setMemberName(memberName);
+        return memberId;
     }
 }

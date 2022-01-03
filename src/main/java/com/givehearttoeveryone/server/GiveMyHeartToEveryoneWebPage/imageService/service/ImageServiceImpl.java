@@ -1,5 +1,7 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.service;
 
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.Member;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageRepository;
 
@@ -13,7 +15,7 @@ import java.util.Map;
 public class ImageServiceImpl implements ImageService{
     private final ImageRepository imageRepository;
 
-    public ImageServiceImpl(ImageRepository imageRepository) {
+    public ImageServiceImpl(ImageRepository imageRepository, MemberRepository memberRepository) {
         this.imageRepository = imageRepository;
     }
 

@@ -40,6 +40,6 @@ public class AppConfig {
     };
     @Bean
     public ImageService imageService(){
-        return new ImageServiceImpl(imageRepository());
+        return new ImageServiceImpl(imageRepository(), memberRepository());
     };
 }

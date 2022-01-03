@@ -1,6 +1,11 @@
 package com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.service;
 
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.AppConfig;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.domain.CardItem;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Card.repository.CardRepository;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.Member;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.enums.Grade;
+import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain.repository.MemberRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.domain.ImageItem;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageMemoryRepository;
 import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.imageService.repository.ImageRepository;
@@ -21,32 +26,51 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ImageServiceImplTest {
     private final ImageService imageService;
+    private final MemberRepository memberRepository;
+    private final CardRepository cardRepository;
+    private final  ImageRepository imageRepository;
 
     public ImageServiceImplTest() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         this.imageService = applicationContext.getBean("imageService", ImageService.class);
+        this.memberRepository = applicationContext.getBean("memberRepository", MemberRepository.class);
+        this.cardRepository = applicationContext.getBean("cardRepository", CardRepository.class);
+        this.imageRepository = applicationContext.getBean("imageRepository", ImageRepository.class);
     }
 
     @Test
-    @DisplayName("카드 아이디를 이용해 이미지 저장")
+    @DisplayName("카드 아이디를 이용해 다량의 이미지 저장")
     void setImageListByCardId() {
-        Long cardId = 0L;
-        Map<Long, ImageItem> imageItemList = new ConcurrentHashMap<>();
-        imageService.setImageItems(cardId, imageItemList);
+        Long memberId = memberRepository.setMember(10000L, "ThisIsSpear", Grade.VIP);
+
+        for (long i = 0L; i < 1000L; i++) {
+            Long cardId = i;
+            CardItem cardItem = new CardItem(cardId, "ImASpear", memberId);
+            cardRepository.setCardItem(cardId, cardItem);
+            Map<Long, ImageItem> imageItemList = new ConcurrentHashMap<>();
+            imageItemList.put(1005L+i, new ImageItem(1005L+i, "/path/new"+String.valueOf(i)));
+            imageItemList.put(3000L+i, new ImageItem(3000L+i, "/path/new"+String.valueOf(i)));
+            imageService.setImageItems(cardId, imageItemList);
+        }
+        for (long i = 0L; i < 1000L; i++) {
+            System.out.println();
+            for(Long key:imageRepository.getImageItemListByCardId(i).keySet()){
+                System.out.println("item"+ i +" = " + imageRepository.getImageItemByCardIdAndImageId(i,key));
+            }
+        }
     }
 
     @Test
     @DisplayName("카드 아이디를 이용해 이미지 리스트 가져오기")
     void getImageListByCardId() {
         Long cardId = 0L;
-        Map<Long, ImageItem> imageItemList = imageService.getImageItemListByCardId(cardId);
-
+//        Map<Long, ImageItem> imageItemList = imageService.getImageItemListByCardId(cardId);
     }
 
     @Test
     @DisplayName("카드 아이디를 이용해 이미지 삭제")
     void deleteImageListByCardId() {
         Long cardId = 0L;
-        imageService.deleteImageItemsByCardId(cardId);
+//        imageService.deleteImageItemsByCardId(cardId);
     }
 }

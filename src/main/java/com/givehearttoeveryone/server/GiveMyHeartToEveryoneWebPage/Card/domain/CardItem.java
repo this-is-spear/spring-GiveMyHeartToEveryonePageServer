@@ -41,4 +41,13 @@ public class CardItem {
     public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
+
+    @Override
+    public String toString() {
+        return "CardItem{" +
+                "cardId=" + cardId +
+                ", cardName='" + cardName + '\'' +
+                ", memberId=" + memberId +
+                '}';
+    }
 }

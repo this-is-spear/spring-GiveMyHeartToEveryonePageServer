@@ -11,12 +11,12 @@ import java.util.Map;
  */
 public interface TextService {
     // 저장
-    void setTextItems(Long cardId, Map<Long, TextItem> textItem);
+    void setTextList(Long cardId, Map<Long, TextItem> textItem);
     // 수정
     //void editTextItemListByCardIdAndItemId(Long cardId, Long ItemId);
     TextItem getTextItem(Long cardId, Long textId);
     // 삭제
-    void deleteTextItemsByCardId(Long cardId);
+    void deleteTextListByCardId(Long cardId);
     // 조회
-    Map<Long, TextItem> getTextItemListByCardId(Long cardId);
+    Map<Long, TextItem> getTextListByCardId(Long cardId);
 }

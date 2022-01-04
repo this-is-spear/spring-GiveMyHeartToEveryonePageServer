@@ -12,35 +12,35 @@ import java.util.concurrent.ConcurrentHashMap;
  * Github : https://github.com/Imaspear
  */
 public class CardMemoryRepository implements CardRepository{
-    Map<Long, CardItem> cardItems = new ConcurrentHashMap<>();
+    Map<Long, CardItem> cardItem = new ConcurrentHashMap<>();
 
     @Override
-    public CardItem getOneByCardId(Long cardId) {
-        return cardItems.get(cardId);
+    public CardItem getCardItemByCardId(Long cardId) {
+        return cardItem.get(cardId);
     }
 
     @Override
-    public Map<Long, CardItem> getListByMemberId(Long memberId) {
+    public Map<Long, CardItem> getCardListByMemberId(Long memberId) {
         return null;
     }
 
     @Override
-    public Map<Long, CardItem> getListByCardName(String cardName) {
+    public Map<Long, CardItem> getCardListByCardName(String cardName) {
         return null;
     }
 
     @Override
-    public void setCardItem(Long cardId, CardItem cardItem) {
-        cardItems.put(cardId,cardItem);
+    public void setCardItem(Long cardId, CardItem Item) {
+        cardItem.put(cardId,Item);
     }
 
     @Override
     public void deleteCardItem(Long cardId) {
-        cardItems.remove(cardId);
+        cardItem.remove(cardId);
     }
 
     @Override
-    public Map<Long, CardItem> getListAll() {
-        return cardItems;
+    public Map<Long, CardItem> getCardListAll() {
+        return cardItem;
     }
 }

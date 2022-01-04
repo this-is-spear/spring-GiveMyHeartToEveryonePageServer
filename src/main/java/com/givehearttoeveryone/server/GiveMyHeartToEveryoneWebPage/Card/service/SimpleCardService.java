@@ -12,13 +12,13 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public interface SimpleCardService {
-    CardItem showCardOneByCardId(Long cardId);
+    CardItem showCardItemByCardId(Long cardId);
     Map<Long, CardItem> showCardListByMemberId(Long memberId);
     Map<Long, CardItem> showCardListByCardName(String cardName);
     Map<Long, CardItem> showCardListAll();
-    Long makeCard(Long memberId, Map<Long, ImageItem> imageItems ,Map<Long, TextItem> textItems);
-    void saveImageItems(Long cardId, Map<Long, ImageItem> imageItems);
-    void saveTextItems(Long cardId, Map<Long, TextItem> textItems);
-    void editCard(Long cardId,Long memberId);
-    void deleteCardByCardId(Long cardId, Long memberId);
+    Long setCardItem(Long memberId, String cardName, Map<Long, ImageItem> imageItems ,Map<Long, TextItem> textItems);
+    boolean saveImageList(Long cardId, Map<Long, ImageItem> imageItems);
+    boolean saveTextList(Long cardId, Map<Long, TextItem> textItems);
+    void editCardItem(Long cardId,Long memberId);
+    void deleteCardItemByCardId(Long cardId, Long memberId);
 }

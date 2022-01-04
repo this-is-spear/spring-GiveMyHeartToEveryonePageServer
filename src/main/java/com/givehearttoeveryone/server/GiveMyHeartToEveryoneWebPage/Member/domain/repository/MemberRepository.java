@@ -9,8 +9,6 @@ import com.givehearttoeveryone.server.GiveMyHeartToEveryoneWebPage.Member.domain
  * Github : https://github.com/Imaspear
  */
 public interface MemberRepository {
-    Long setMember(Long memberId, String memberName, Grade grade);
-    Member getOneByMemberId(Long memberId);
-    void updateGradeMember(Long memberId, Grade grade);
-    Long updateMemberName(Long memberId, String memberName);
+    Long setMember(Long memberId, Member member);
+    Member getMemberByMemberId(Long memberId);
 }

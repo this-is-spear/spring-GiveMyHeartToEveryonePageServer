@@ -48,7 +48,7 @@ class TextMemoryRepositoryTest {
         }
         //when
         Long testCardId = testCard.getCardId();
-        textRepository.setTextItemsByCardId(testCardId, textItems);
+        textRepository.setTextListByCardId(testCardId, textItems);
         //then
     }
 
@@ -61,7 +61,7 @@ class TextMemoryRepositoryTest {
         //when
         Long testCardId = testCard.getCardId();
         //then
-        for(Long key: textRepository.getTextItemListByCardId(testCardId).keySet()){
+        for(Long key: textRepository.getTextListByCardId(testCardId).keySet()){
             System.out.println(textRepository.getTextItemByCardIdAndTextId(testCardId, key));
         }
     }
@@ -74,15 +74,15 @@ class TextMemoryRepositoryTest {
 
 //      깊은 복사를 직접 해줘 판별하자
         Map<Long, TextItem> textItemMap = new HashMap<>();
-        for (Long key :textRepository.getTextItemListByCardId(testCardId).keySet()) {
-            TextItem textItem = new TextItem(key, textRepository.getTextItemListByCardId(testCardId).get(key).getPath() + "/new");
+        for (Long key :textRepository.getTextListByCardId(testCardId).keySet()) {
+            TextItem textItem = new TextItem(key, textRepository.getTextListByCardId(testCardId).get(key).getPath() + "/new");
             textItemMap.put(textItem.getTextId(), textItem);
         }
         TextItem textItem = new TextItem(++sequence, "/path/new");
         textItemMap.put(textItem.getTextId(), textItem);
 
-        textRepository.deleteTextItemsByCardId(testCardId);
-        textRepository.setTextItemsByCardId(testCardId, textItemMap);
+        textRepository.deleteTextListByCardId(testCardId);
+        textRepository.setTextListByCardId(testCardId, textItemMap);
 
 //      textItemMap과 textItems은 같은 객체이다. 하나를 변경하면 바뀐다.
 //        textItemMap.clear();
@@ -96,8 +96,8 @@ class TextMemoryRepositoryTest {
         saveTextItemsByCardId();
         Long testCardId = this.testCard.getCardId();
         //when
-        textRepository.deleteTextItemsByCardId(testCardId);
+        textRepository.deleteTextListByCardId(testCardId);
         //then
-        System.out.println(textRepository.getTextItemListByCardId(testCardId));
+        System.out.println(textRepository.getTextListByCardId(testCardId));
     }
 }

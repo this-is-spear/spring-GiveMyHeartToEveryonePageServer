@@ -15,22 +15,22 @@ import java.util.Map;
 public class ImageServiceImpl implements ImageService{
     private final ImageRepository imageRepository;
 
-    public ImageServiceImpl(ImageRepository imageRepository, MemberRepository memberRepository) {
+    public ImageServiceImpl(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
     }
 
     @Override
-    public void setImageItems(Long cardId, Map<Long, ImageItem> imageItems) {
+    public void setImageList(Long cardId, Map<Long, ImageItem> imageItems) {
         imageRepository.setImageItemsByCardId(cardId, imageItems);
     }
 
     @Override
-    public void deleteImageItemsByCardId(Long cardId) {
+    public void deleteImageListByCardId(Long cardId) {
         imageRepository.deleteImageItemsByCardId(cardId);
     }
 
     @Override
-    public Map<Long, ImageItem> getImageItemListByCardId(Long cardId) {
+    public Map<Long, ImageItem> getImageListByCardId(Long cardId) {
         return imageRepository.getImageItemListByCardId(cardId);
     }
 

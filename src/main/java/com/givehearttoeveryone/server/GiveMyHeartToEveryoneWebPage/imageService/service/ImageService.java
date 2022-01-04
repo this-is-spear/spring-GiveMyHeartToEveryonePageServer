@@ -12,12 +12,12 @@ import java.util.Map;
  */
 public interface ImageService {
     // 저장
-    void setImageItems(Long cardId, Map<Long, ImageItem> imageItems);
+    void setImageList(Long cardId, Map<Long, ImageItem> imageItems);
     // 수정
     //void editImageItemsByCardIdAndItemId(Long cardId, Long ItemId);
     ImageItem getImageItem(Long cardId, Long imageId);
     // 삭제
-    void deleteImageItemsByCardId(Long cardId);
+    void deleteImageListByCardId(Long cardId);
     // 조회
-    Map<Long, ImageItem> getImageItemListByCardId(Long cardId);
+    Map<Long, ImageItem> getImageListByCardId(Long cardId);
 }

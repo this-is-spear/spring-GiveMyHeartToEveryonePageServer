@@ -49,7 +49,7 @@ class CardMemoryRepositoryTest {
     @DisplayName("카드 하나 조회하기 위해 카드 ID를 이용해 데이터 가져오기")
     void getOneByCardId() {
         for (Long i = 5L; i < 20L; i++) {
-            System.out.println(cardRepository.getOneByCardId(i).toString());
+            System.out.println(cardRepository.getCardItemByCardId(i).toString());
         }
     }
 
@@ -62,13 +62,13 @@ class CardMemoryRepositoryTest {
             cardRepository.setCardItem(itemOfImaspear.getCardId(), itemOfImaspear);
             cardRepository.setCardItem(itemOfImnotaspear.getCardId(), itemOfImnotaspear);
         }
-        Assertions.assertThat(cardRepository.getListAll().size()).isEqualTo(80);
+        Assertions.assertThat(cardRepository.getCardListAll().size()).isEqualTo(80);
     }
 
     @Test
     @DisplayName("카드 하나 삭제하기")
     void deleteOneByCardId() {
         cardRepository.deleteCardItem(5L);
-        Assertions.assertThat(cardRepository.getListByMemberId(5L)).isNull();
+        Assertions.assertThat(cardRepository.getCardListByMemberId(5L)).isNull();
     }
 }

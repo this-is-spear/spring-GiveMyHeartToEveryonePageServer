@@ -10,9 +10,9 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public interface TextRepository {
-    Map<Long, TextItem> getTextItemListByCardId(Long cardId);
+    Map<Long, TextItem> getTextListByCardId(Long cardId);
     TextItem getTextItemByCardIdAndTextId(Long cardId, Long textId);
-    void setTextItemsByCardId(Long cardId, Map<Long, TextItem> textItems);
-    void editTextItems(Long cardId, Map<Long, TextItem> textItems);
-    void deleteTextItemsByCardId(Long cardId);
+    void setTextListByCardId(Long cardId, Map<Long, TextItem> textItems);
+    void editTextList(Long cardId, Map<Long, TextItem> textItems);
+    void deleteTextListByCardId(Long cardId);
 }

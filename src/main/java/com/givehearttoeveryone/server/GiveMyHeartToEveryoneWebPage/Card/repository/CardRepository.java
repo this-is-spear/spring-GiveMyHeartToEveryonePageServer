@@ -10,10 +10,10 @@ import java.util.Map;
  * Github : https://github.com/Imaspear
  */
 public interface CardRepository {
-    CardItem getOneByCardId(Long cardId);
-    Map<Long ,CardItem> getListByMemberId(Long memberId);
-    Map<Long ,CardItem> getListByCardName(String cardName);
-    Map<Long ,CardItem> getListAll();
+    CardItem getCardItemByCardId(Long cardId);
+    Map<Long ,CardItem> getCardListByMemberId(Long memberId);
+    Map<Long ,CardItem> getCardListByCardName(String cardName);
+    Map<Long ,CardItem> getCardListAll();
     void setCardItem(Long cardId, CardItem cardItem);
     void deleteCardItem(Long cardId);
 }

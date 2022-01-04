@@ -12,30 +12,30 @@ import java.util.concurrent.ConcurrentHashMap;
  * Github : https://github.com/Imaspear
  */
 public class TextMemoryRepository implements TextRepository {
-    Map<Long, Map<Long, TextItem>> saveTextItemsByCardId = new ConcurrentHashMap<>();
+    Map<Long, Map<Long, TextItem>> textList = new ConcurrentHashMap<>();
 
     @Override
-    public Map<Long, TextItem> getTextItemListByCardId(Long cardId) {
-        return saveTextItemsByCardId.get(cardId);
+    public Map<Long, TextItem> getTextListByCardId(Long cardId) {
+        return textList.get(cardId);
     }
 
     @Override
     public TextItem getTextItemByCardIdAndTextId(Long cardId, Long textId) {
-        return saveTextItemsByCardId.get(cardId).get(textId);
+        return textList.get(cardId).get(textId);
     }
 
     @Override
-    public void setTextItemsByCardId(Long cardId, Map<Long, TextItem> textItems) {
-        saveTextItemsByCardId.put(cardId, textItems);
+    public void setTextListByCardId(Long cardId, Map<Long, TextItem> textItems) {
+        textList.put(cardId, textItems);
     }
 
     @Override
-    public void editTextItems(Long cardId, Map<Long, TextItem> textItems) {
-        saveTextItemsByCardId.put(cardId, textItems);
+    public void editTextList(Long cardId, Map<Long, TextItem> textItems) {
+        textList.put(cardId, textItems);
     }
 
     @Override
-    public void deleteTextItemsByCardId(Long cardId) {
-        saveTextItemsByCardId.remove(cardId);
+    public void deleteTextListByCardId(Long cardId) {
+        textList.remove(cardId);
     }
 }
